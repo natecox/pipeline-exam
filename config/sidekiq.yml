@@ -1,0 +1,9 @@
+---
+:concurrency: 2
+:queues:
+  - default
+
+:schedule:
+  fetch_deals:
+    every: 1m
+    class: FetchDealsJob

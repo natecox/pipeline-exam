@@ -19,5 +19,7 @@ module Pipeline
     # the framework and any gems in your application.
 
     config.generators.assets = false
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end
