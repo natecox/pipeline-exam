@@ -1,0 +1,64 @@
+{
+  "addons": ["heroku-postgresql", "heroku-redis:hobby-dev"],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ],
+  "description": "",
+  "env": {
+    "LANG": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_MASTER_KEY": {
+      "required": true
+    },
+    "RAILS_LOG_TO_STDOUT": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    },
+    "BUNDLE_WITHOUT": {
+      "required": true
+    },
+    "DEFAULT_HOST": {
+      "required": true
+    },
+    "YARN_PRODUCTION": {
+      "required": true
+    },
+    "SENDGRID_USERNAME": {
+      "required": true
+    },
+    "SENDGRID_PASSWORD": {
+      "required": true
+    },
+    "HEROKU_APP_NAME": {
+      "required": true
+    },
+    "HEROKU_PARENT_APP_NAME": {
+      "required": true
+    }
+  },
+  "formation": {
+    "sidekiq": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "name": "Pipeline Exam",
+  "stack": "heroku-18"
+}
