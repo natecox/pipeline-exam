@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  deal_stage: one
-  name: MyString
+good_deal:
+  deal_stage: beginning
+  name: I am good
   value: 9.99
 
-two:
-  deal_stage: two
-  name: MyString
-  value: 9.99
+bad_deal:
+  deal_stage: end
+  name: I am bad
+  value: 0

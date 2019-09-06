@@ -1,3 +1,19 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+:root {
+  --primary-color: hsl(262, 48%, 46%);
+  --text-color: hsl(262, 50%, 36%);
+  --gradient-top: hsl(262, 60%, 93%);
+  --gradient-bottom: hsl(261, 82%, 90%);
+}
+
+body {
+  display: flex;
+  place-items: center;
+  place-content: center;
+  
+  width: 100vw;
+  height: 100vh;
+
+  background: linear-gradient(90deg, var(--gradient-top), var(--gradient-bottom));
+}

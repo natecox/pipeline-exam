@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+beginning:
   percent: 1
-  name: MyString
+  name: Beginning
 
-two:
-  percent: 1
-  name: MyString
+end:
+  percent: 100
+  name: end
