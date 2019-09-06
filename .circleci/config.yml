@@ -23,6 +23,7 @@ jobs:
         key: pipeline-{{ checksum "Gemfile.lock" }}
 
       # Bundle install dependencies
+      - run: gem install bundler:2.0.2
       - run: bundle install --path vendor/bundle
       - run: NODE_ENV=test bundle exec yarn
       - run: NODE_ENV=test bundle exec rails webpacker:compile
