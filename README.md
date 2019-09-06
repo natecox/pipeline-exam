@@ -1,24 +1,8 @@
-# README
+# Pipeline LLC Code Eval 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Running locally
+There's not much special to do outside of running `bin/setup` to get started.
 
-Things you may want to cover:
+You will, however, need a master key to access the credentials file, where the pipeline api key is stored. Contact me and I'll send it over to you!
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+You will also need to get sidekiq running. If you're using foreman, or `heroku local` it'll start up as a predefined process, otherwise you'll need to start it manually.

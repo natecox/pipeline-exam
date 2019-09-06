@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+beginning:
+  percent: 1
+  name: Beginning
+
+end:
+  percent: 100
+  name: end

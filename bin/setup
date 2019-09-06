@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
+
 require 'fileutils'
 
 # path to your application root.
@@ -30,6 +32,9 @@ FileUtils.chdir APP_ROOT do
 
   puts "\n== Removing old logs and tempfiles =="
   system! 'bin/rails log:clear tmp:clear'
+
+  puts "\n== Fetching Pipeline Deals via API =="
+  system! 'bin/rails deals:fetch'
 
   puts "\n== Restarting application server =="
   system! 'bin/rails restart'
