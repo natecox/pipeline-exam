@@ -1,0 +1,53 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: ~/pipeline
+    docker:
+      - image: circleci/ruby:2.6.4-node-browsers
+        environment:
+          PGHOST: localhost
+          PGUSER: pipeline
+          RAILS_ENV: test
+      - image: postgres:11
+        environment:
+          POSTGRES_USER: pipeline
+          POSTGRES_DB: pipeline_test
+          POSTGRES_PASSWORD: ""
+    steps:
+      - checkout
+
+      # Restore Cached Dependencies
+      - type: cache-restore
+        name: Restore bundle cache
+        key: pipeline-{{ checksum "Gemfile.lock" }}
+
+      # Bundle install dependencies
+      - run: gem install bundler:2.0.2
+      - run: bundle install --path vendor/bundle
+      - run: NODE_ENV=test bundle exec yarn
+      - run: NODE_ENV=test bundle exec rails webpacker:compile
+
+      # Cache Dependencies
+      - type: cache-save
+        name: Store bundle cache
+        key: pipeline-{{ checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
+
+      # Wait for DB
+      - run: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      # Setup the environment
+      # - run: cp .sample.env .env
+
+      # Setup the database
+      - run: bundle exec rake db:migrate
+        
+      # Run the tests
+      - run: bundle exec rake test:system test
+        
+      # Setup artifacts
+      - store_artifacts:
+          path: ~/pipeline/tmp/screenshots
+          
